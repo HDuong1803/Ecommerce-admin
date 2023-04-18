@@ -1,22 +1,22 @@
-import Layout from "@/components/Layout"
-import axios from "axios";
+import Layout from "@/components/Layout";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function Products() {
-    const [products, setProducts] = useState([]);
-    useEffect(()=> {
-        axios.get('/api/products').then(response => {
-            setProducts(response.data);
-        })
-    },[])
-    return (
-        <Layout>
+  const [products,setProducts] = useState([]);
+  useEffect(() => {
+    axios.get('/api/products').then(response => {
+      setProducts(response.data);
+    });
+  }, []);
+  return (
+    <Layout>
       <Link className="btn-primary" href={'/products/new'}>Thêm sản phẩm</Link>
       <table className="basic mt-2">
         <thead>
           <tr>
-            <td>Danh sách sản phẩm</td>
+            <td>Tên sản phẩm</td>
             <td></td>
           </tr>
         </thead>
@@ -43,5 +43,5 @@ export default function Products() {
         </tbody>
       </table>
     </Layout>
-    );
+  );
 }

@@ -17,7 +17,7 @@ export default function OrdersPage() {
           <tr>
             <th>Thời gian</th>
             <th>Tình trạng</th>
-            <th>Người nhận</th>
+            <th>Thông tin khách hàng</th>
             <th>Sản phẩm</th>
           </tr>
         </thead>

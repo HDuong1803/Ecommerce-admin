@@ -35,10 +35,8 @@ export default function ProductForm({
       properties:productProperties
     };
     if (_id) {
-      //update
       await axios.put('/api/products', {...data,_id});
     } else {
-      //create
       await axios.post('/api/products', data);
     }
     setGoToProducts(true);
@@ -101,7 +99,7 @@ export default function ProductForm({
         </select>
         {propertiesToFill.length > 0 && propertiesToFill.map(p => (
           <div key={p.name} className="">
-            <label>{p.name[0].toUpperCase()+p.name.substring(1)}</label>
+            <label>{p.name.toUpperCase()+p.name.substring(1)}</label>
             <div>
               <select value={productProperties[p.name]}
                       onChange={ev =>
@@ -116,7 +114,7 @@ export default function ProductForm({
           </div>
         ))}
         <label>
-          Ảnh
+          Hình ảnh
         </label>
         <div className="mb-2 flex flex-wrap gap-1">
           <ReactSortable
@@ -139,7 +137,7 @@ export default function ProductForm({
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
             </svg>
             <div>
-              Thêm ảnh
+              Tải lên
             </div>
             <input type="file" onChange={uploadImages} className="hidden"/>
           </label>
@@ -150,7 +148,7 @@ export default function ProductForm({
           value={description}
           onChange={ev => setDescription(ev.target.value)}
         />
-        <label>Giá </label>
+        <label>Giá</label>
         <input
           type="number" placeholder="VND"
           value={price}

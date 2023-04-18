@@ -69,7 +69,7 @@ function Categories({swal}) {
   }
   function addProperty() {
     setProperties(prev => {
-      return [...prev, {name:"",values:""}];
+      return [...prev, {name:'',values:''}];
     });
   }
   function handlePropertyNameChange(index,property,newName) {
@@ -95,23 +95,23 @@ function Categories({swal}) {
   }
   return (
     <Layout>
-      <h1>Phân loại</h1>
+      <h1>Phân loại sản phẩm</h1>
       <label>
         {editedCategory
-          ? `Chỉnh sửa ${editedCategory.name}`
-          : 'Tạo mới'}
+          ? `Edit category ${editedCategory.name}`
+          : 'Phân loại'}
       </label>
       <form onSubmit={saveCategory}>
         <div className="flex gap-1">
           <input
             type="text"
-            placeholder={'Tên loại'}
+            placeholder={'Phân loại'}
             onChange={ev => setName(ev.target.value)}
             value={name}/>
           <select
                   onChange={ev => setParentCategory(ev.target.value)}
                   value={parentCategory}>
-            <option value="">Phân loại</option>
+            <option value="">Chọn loại sản phẩm</option>
             {categories.length > 0 && categories.map(category => (
               <option key={category._id} value={category._id}>{category.name}</option>
             ))}
@@ -140,7 +140,7 @@ function Categories({swal}) {
                          property,ev.target.value
                        )}
                      value={property.values}
-                     placeholder="thông tin thêm"/>
+                     placeholder="Thông tin thêm"/>
               <button
                 onClick={() => removeProperty(index)}
                 type="button"
@@ -172,7 +172,7 @@ function Categories({swal}) {
         <table className="basic mt-4">
           <thead>
           <tr>
-            <td>Loại sản phẩm</td>
+            <td>Sản phẩm</td>
             <td>Phân loại</td>
             <td></td>
           </tr>
